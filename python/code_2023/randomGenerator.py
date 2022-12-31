@@ -1,7 +1,6 @@
 import random as r
 import string
 
-
 def main():
     """acts as an orchestrator for the entire program"""
 
