@@ -1,16 +1,13 @@
 import random as r
 import string
 
+
 def main():
     """acts as an orchestrator for the entire program"""
 
-    lowercaseList = list(string.ascii_lowercase)
-    uppercaseList = list(string.ascii_uppercase)
-    bothCaseList = list(string.ascii_uppercase) + list(string.ascii_lowercase)
+    dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth = getStringType()
 
-    dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth = getStringType() # error on this line
-
-    generationList = addParametersToList(dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth, uppercaseList, lowercaseList, bothCaseList)
+    generationList = addParametersToList(dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth)
 
     getStringLength(generationList)
 
@@ -32,7 +29,7 @@ def getStringType():
         elif dataTypeLetters == "both":
             dataTypeLettersBoth = True
 
-        return dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth
+    return dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth
 
     # dataTypeNumbers = input("Include Numbers?")
     # if dataTypeNumbers == "yes" or dataTypeNumbers == "y":
@@ -43,8 +40,12 @@ def getStringType():
     #     dataTypeSpecial == True
 
 
-def addParametersToList(dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth, uppercaseList, lowercaseList, bothCaseList):
+def addParametersToList(dataTypeLettersUpper, dataTypeLettersLower, dataTypeLettersBoth):
     """Adds the True parameters to a list the random generator can grab from"""
+
+    lowercaseList = list(string.ascii_lowercase)
+    uppercaseList = list(string.ascii_uppercase)
+    bothCaseList = list(string.ascii_uppercase) + list(string.ascii_lowercase)
 
     if dataTypeLettersUpper:
         generationList = generationList.append(uppercaseList)
