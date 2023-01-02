@@ -1,6 +1,5 @@
 import random
 
-
 def playRockPaperScissorsRound():
   """Plays a rock paper scissors game and returns the result"""
 

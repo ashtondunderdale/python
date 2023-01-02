@@ -1,7 +1,6 @@
 import random
 import string
 
-
 # all parameter inputs from user - sets whether certain characters will be included in the generated sequence
 uppercaseCharacters = input("Include uppercase characters (y/n)? ").lower() == "y"
 lowercaseCharacters = input("Include lowercase characters (y/n)? ").lower() == "y"
