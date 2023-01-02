@@ -10,7 +10,7 @@ specialCharacters = input("Include special characters (y/n)? ").lower() == "y"
 sequenceLength = int(input("Enter the length of the sequence: "))
 
 
-def generate_sequence(uppercaseCharacters, lowercaseCharacters, digits, specialCharacters, sequenceLength):
+def generateSequence(uppercaseCharacters, lowercaseCharacters, digits, specialCharacters, sequenceLength):
   """checks if parameters are "true" and adds to a list: "characters", outputs sequence based on length and cases"""
 
 # sets characters to empty string, checks if char type is "true": uppercase, lowercase, etc
@@ -29,5 +29,5 @@ def generate_sequence(uppercaseCharacters, lowercaseCharacters, digits, specialC
   
   return sequence
 
-print(generate_sequence(uppercaseCharacters, lowercaseCharacters, digits, specialCharacters, sequenceLength))
+print(generateSequence(uppercaseCharacters, lowercaseCharacters, digits, specialCharacters, sequenceLength))
 
