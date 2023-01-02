@@ -15,7 +15,7 @@ def makeCupOfTea():
     cupWithSqueezedTea = squeezeTeabag(teabag, cupWithTea, spoon)
     cupOfTeaWithRemovedTeabag = removeTeabag(cupWithSqueezedTea, spoon, teabag)
     cupOfTeaAndMilk = addMilk(milk, cupOfTeaWithRemovedTeabag)
-    cupOfTeaAndMilkAndSugar = addSugar(sugar, cupOfTeaAndMilk)
+    cupOfTeaAndMilkAndSugar = addSugar(sugar, cupOfTeaAndMilk, spoon)
     cupOfTea = stirTea(spoon, cupOfTeaAndMilkAndSugar)
 
     drinkTea(cupOfTea)
@@ -89,7 +89,7 @@ def addMilk(milk, cupOfTeaWithRemovedTeabag):
 
     return "cup of tea and milk"
 
-def addSugar(sugar, cupOfTeaAndMilk):
+def addSugar(sugar, cupOfTeaAndMilk, spoon):
     """adds sugar to thge tea""" 
 
     return "cup of tea, milk, and sugar"
