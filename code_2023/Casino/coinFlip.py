@@ -57,7 +57,3 @@ def main():
 
   print("Correct:", counts["correct"])
   print("Incorrect:", counts["incorrect"])
-
-
-if __name__ == "__main__":
-    main()

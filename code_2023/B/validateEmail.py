@@ -8,4 +8,3 @@ def validateEmail(email):
     return False
 
 print(validateEmail("example@gmail.com"))  
-

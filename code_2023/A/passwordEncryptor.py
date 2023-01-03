@@ -8,7 +8,7 @@ def setPassword(username):
     reader = csv.reader(csvfile)
     for row in reader:
       if row[0] == username:
-        username = input("Please enter a new username: ")
+        username = input("Username Taken: Please enter a new username: ")
         setPassword(username)
 
   # user inputs password, validates it with capitals and numbers + length

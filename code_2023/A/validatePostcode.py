@@ -18,8 +18,7 @@ def openMap(postcode):
 
     # opens google maps in accordance with the lon / lat - does not work
     googleMaps = f"https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
-    operaPath = "C:\Users\Ashton\AppData\Local\Programs\Opera GX"
-    webbrowser.get(operaPath).open(googleMaps)
+    webbrowser.open(googleMaps)
     print(googleMaps)
 
   else:
