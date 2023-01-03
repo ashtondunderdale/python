@@ -1,4 +1,3 @@
-
 def calculate(number):
     """calculates all the possible sums that can add up to a given number"""
 
@@ -16,5 +15,7 @@ def calculate(number):
                 if i <= j:
                     result.append(f"{i} + {j}")
 
-calculate(100)
+    print(f"There are {len(result)} different sums to make {number}")
+
+calculate(20)
 print(result)

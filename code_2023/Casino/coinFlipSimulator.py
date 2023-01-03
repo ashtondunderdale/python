@@ -1,10 +1,5 @@
 import random
 
-def coinFlip():
-  """flips a coin and returns heads or tails"""
-
-  return random.choice(['heads', 'tails'])
-
 
 def getUserPrediction():
   """gets user prediction for heads or tails"""
@@ -19,7 +14,7 @@ def getUserPrediction():
 def playCoinFlip():
   """plays a game of coin flip and returns the result"""
 
-  result = coinFlip()
+  result = random.choice(['heads', 'tails'])
   prediction = getUserPrediction()
 
   print("The coin flip was", result)
@@ -47,13 +42,15 @@ def main():
 
     # asks the user if they would like to play again
     while True:
-      flip_again = input("Would you like to play again (y/n)? ").lower()
-      if flip_again in ["y", "n"]:
+      flipAgain = input("Would you like to play again (y/n)? ").lower()
+      if flipAgain in ["y", "n"]:
         break
       print("Invalid input. Please enter 'y' or 'n'.")
 
-    if flip_again != "y":
+    if flipAgain != "y":
       break
 
   print("Correct:", counts["correct"])
   print("Incorrect:", counts["incorrect"])
+
+main()
