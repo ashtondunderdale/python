@@ -16,5 +16,5 @@ def calculate(number):
                 if i <= j:
                     result.append(f"{i} + {j}")
 
-calculate(10)
+calculate(100)
 print(result)
