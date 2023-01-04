@@ -1,6 +1,5 @@
 import random
 
-
 def getUserPrediction():
   """gets user prediction for heads or tails"""
 
