@@ -14,7 +14,7 @@ def playCardGuessGame():
     # picks a random card from the deck
     card = random.choice(deck)
     card = card.lower()
-    print(f"A card has been drawn from the deck {card}")
+    print(f"A card has been drawn from the deck")
     choice = input("Would you like to guess the colour, number, or card specifically?\n\n1. suit\n2. value\n3. card\n")
 
     if choice == "1":   

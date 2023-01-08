@@ -16,7 +16,7 @@ def openMap(postcode):
     longitude = response.json()["result"]["longitude"]
     print(latitude, longitude)
 
-    # opens google maps in accordance with the lon / lat - does not work
+    # opens google maps in accordance with the lon / lat --> does not work
     googleMaps = f"https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
     webbrowser.open(googleMaps)
     print(googleMaps)
