@@ -14,6 +14,7 @@ def calculator(numberOne, numberTwo, operation):
         print(numberOne, "/", numberTwo, "=", numberOne / numberTwo)
     exit()
 
+
 def getNumbers():
     """gets the input values from the user"""
 
@@ -24,8 +25,14 @@ def getNumbers():
         getNumbers()
     
     numberOne, numberTwo = int(numberOne), int(numberTwo)
+
+    return numberOne, numberTwo
+
+
+def getOperation():
+    """gets the operation from the user""" 
+
     operation = input("Enter the operation you want to use")
-    
 
     if operation not in ["+", "-", "*", "/"]:
         print("Error: Unsupported operation")
@@ -33,6 +40,6 @@ def getNumbers():
     
     calculator(numberOne, numberTwo, operation)
 
-    return numberOne, numberTwo, operation
 
-numberOne, numberTwo, operation = getNumbers()
+numberOne, numberTwo = getNumbers()
+operation = getOperation()
