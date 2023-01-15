@@ -6,7 +6,6 @@ uncommon = 2
 rare = 3
 superrare = 4
 
-
 listOfItems = [
     ("Pistol", common, 25),
     ("SMG", uncommon, 75),

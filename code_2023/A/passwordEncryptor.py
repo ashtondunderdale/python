@@ -4,12 +4,16 @@ def setPassword(username):
   """user inputs password, validates, encrypts the password and adds to csv file"""
 
   # checks if username is taken
-  with open('passwords.csv', 'r', newline='') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-      if row[0] == username:
-        username = input("Username Taken: Please enter a new username: ")
-        setPassword(username)
+  try:
+    with open('passwords.csv', 'r', newline='') as csvfile:
+      reader = csv.reader(csvfile)
+      for row in reader:
+        if row[0] == username:
+          username = input("Username Taken: Please enter a new username: ")
+          setPassword(username)
+  except FileNotFoundError:
+      print("File Not Found")
+
 
   # user inputs password, validates it with capitals and numbers + length
   passwordSet = False
