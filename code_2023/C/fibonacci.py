@@ -1,14 +1,14 @@
-def fibonacci(n):
+def fibonacciSequence(num):
     """prints the fibonacci sequence up to a given number"""
 
-    if n == 0:
+    if num == 0:
         return 0
-    elif n == 1:
+    elif num == 1:
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        return fibonacciSequence(num-1) + fibonacciSequence(num-2)
 
-terms = int(input("Enter the number of terms in the Fibonacci sequence: "))
+term = int(input("Enter the number of terms in the Fibonacci sequence: "))
 
-for i in range(terms):
-    print(fibonacci(i))
+for i in range(term):
+    print(fibonacciSequence(i))
