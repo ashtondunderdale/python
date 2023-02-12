@@ -3,6 +3,8 @@ import pyttsx3 # for text to speech
 import webbrowser
 import requests
 from bs4 import BeautifulSoup
+import time
+import math
 
 # speech engine initilisation
 engine = pyttsx3.init()
@@ -72,3 +74,26 @@ while True:
         elif query[1] == "help": # help command
             speak("Here is a list of commands I can perform. Say command - i will repeat whatever you tell me to. Terminate command - i will shut myself down. Search command - I will search for a query of your choice. Define command - I will define a word for you.")
             exit()
+
+        elif query[1] == "calculate": # calculate command
+            expression = ' '.join(query[2:])
+            expression = expression.replace("asterisk", "*").replace("x", "*") # allows the computer to perform multiplication
+            try:
+                result = eval(expression)
+                speak(f"The result of {expression} is {result}")
+            except:
+                speak("Sorry, I could not evaluate that expression.")
+
+        elif query[1] == "timer": # timer command
+            try:
+                seconds = int(query[2])
+                speak(f"Timer set for {seconds} seconds.")
+                time.sleep(seconds)
+                speak("Timer is up.")
+            except:
+                speak("Sorry, I could not set the timer.")
+
+        elif query[1] == "pi": # list pi command
+            decimalPlaces = 10
+            speak(f"The value of pi is {round(math.pi, decimalPlaces)}")
+        
