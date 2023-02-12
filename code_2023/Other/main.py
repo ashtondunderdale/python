@@ -1,10 +1,13 @@
 import speech_recognition as sr
 import pyttsx3 # for text to speech
+import webbrowser
+import requests
+from bs4 import BeautifulSoup
 
 # speech engine initilisation
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[0].id) # 0 - male, 1 - female
+engine.setProperty("voice", voices[0].id)
 activationWord = "computer"
 
 def speak(text, rate = 120):
@@ -22,34 +25,42 @@ def parseCommand():
         inputSpeech = listener.listen(source)
 
     try:
-        print("Recognizing speech...")
+        print("Processing Speech...")
         query = listener.recognize_google(inputSpeech, language="en_gb")
         print(f"The input speech was: {query}")
     except Exception as exception:
-        print("I did not quite catch that")
-        speak("I did not quite catch that")
+        speak("I could not understand that")
         print(exception)
         return "None"
     
     return query
 
-# main loop
 if __name__ == "__main__":
     speak("System Online")
 
-    while True:
-        # Parse as a list
-        query = parseCommand().lower().split()
+while True:
+    query = parseCommand().lower().split()
 
-        if query[0] == "computer":
-        
-            if query[1] == "hello":
-                speak("Greetings, Ashton.")
+    if query[0] == "computer":
+    
+        if query[1] == "hello":
+            speak("Greetings, Ashton.")
 
-            elif query[1] == "say":
-                textToSpeak = ' '.join(query[2:])
-                speak(f"{textToSpeak}")
+        elif query[1] == "say":
+            textToSpeak = ' '.join(query[2:])
+            speak(f"{textToSpeak}")
 
-            elif query[1] == "terminate":
-                speak("Shutting Down")
-                exit()
+        elif query[1] == "terminate":
+            speak("Shutting Down")
+            exit()
+
+        elif query[1] == "search":
+            searchQuery = ' '.join(query[2:])
+            url = f"https://www.dictionary.com/browse/{searchQuery}"
+            response = requests.get(url)
+            soup = BeautifulSoup(response.text, "html.parser")
+            try:
+                definition = soup.find("div", class_="default-content").find("span").text
+                speak(f"The definition of {searchQuery} is: {definition}")
+            except:
+                speak(f"Sorry, I could not find a definition for {searchQuery}.")
