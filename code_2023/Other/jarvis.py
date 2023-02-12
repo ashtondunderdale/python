@@ -43,18 +43,22 @@ while True:
 
     if query[0] == "computer":
     
-        if query[1] == "hello":
+        if query[1] == "hello": # greetings command
             speak("Greetings, Ashton.")
 
-        elif query[1] == "say":
+        elif query[1] == "say": # repeat query command
             textToSpeak = ' '.join(query[2:])
             speak(f"{textToSpeak}")
 
-        elif query[1] == "terminate":
+        elif query[1] == "terminate": # exit command
             speak("Shutting Down")
             exit()
 
-        elif query[1] == "search":
+        elif query[1] == "search": # search query command
+            searchQuery = ' '.join(query[2:])
+            webbrowser.open(f"https://www.google.com/search?q={searchQuery}")
+
+        elif query[1] == "define": # define query command
             searchQuery = ' '.join(query[2:])
             url = f"https://www.dictionary.com/browse/{searchQuery}"
             response = requests.get(url)
@@ -64,3 +68,7 @@ while True:
                 speak(f"The definition of {searchQuery} is: {definition}")
             except:
                 speak(f"Sorry, I could not find a definition for {searchQuery}.")
+
+        elif query[1] == "help": # help command
+            speak("Here is a list of commands I can perform. Say command - i will repeat whatever you tell me to. Terminate command - i will shut myself down. Search command - I will search for a query of your choice. Define command - I will define a word for you.")
+            exit()
