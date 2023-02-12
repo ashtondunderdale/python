@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import math
+import json # for jokes
 
 # speech engine initilisation
 engine = pyttsx3.init()
@@ -47,6 +48,10 @@ while True:
     
         if query[1] == "hello": # greetings command
             speak("Greetings, Ashton.")
+
+        elif query[1] == "thank": # thank you command
+            if "you" in query[2:] or "thanks" in query[2:]:
+                speak("You're very welcome, Ashton.")
 
         elif query[1] == "say": # repeat query command
             textToSpeak = ' '.join(query[2:])
@@ -93,7 +98,23 @@ while True:
             except:
                 speak("Sorry, I could not set the timer.")
 
-        elif query[1] == "pi": # list pi command
-            decimalPlaces = 10
-            speak(f"The value of pi is {round(math.pi, decimalPlaces)}")
+        elif "list" in query and "pi" in query: # list pi command
+                digits = int(''.join(filter(str.isdigit, ' '.join(query)))) # extract number of digits from query
+                if digits > 25:
+                    speak("I'm sorry, I can't list that many digits of pi. Well actually, i could, i just dont want to.")
+                else:
+                    pi = str(math.pi)
+                    speak(f"Here are the first {digits} digits of pi: {pi[:1]}.{pi[1:digits+1]}")
+
+        elif query[1] == "joke":
+            url = "https://official-joke-api.appspot.com/random_joke"
+            response = requests.get(url)
+            data = json.loads(response.text)
+            setup = data['setup']
+            punchline = data['punchline']
+            joke = f"{setup} ... {punchline}"
+            speak(joke)
+
+        else:
+            speak("Sorry, I dont recognise that command.")
         
