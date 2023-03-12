@@ -1,4 +1,5 @@
 # python
 
-A - Best code
-B, C - Smaller projects
+A - Favourite Stuff
+
+Basic - Simpler Code

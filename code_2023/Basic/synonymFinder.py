@@ -1,4 +1,4 @@
-from PyDictionary import PyDictionary # need to install import
+from PyDictionary import PyDictionary # does not work
 dictionary=PyDictionary()
 
 word = input("Enter a word: ")

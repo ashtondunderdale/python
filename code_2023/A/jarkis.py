@@ -1,13 +1,12 @@
 import speech_recognition as sr
-import pyttsx3 # for text to speech
+import pyttsx3
 import webbrowser
 import requests
 from bs4 import BeautifulSoup
 import time
 import math
-import json # for jokes
+import json 
 
-# speech engine initilisation
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id)
